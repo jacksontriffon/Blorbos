@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Eraser-Sheet.png-7fdfa4c8d311c932dcf9972088b15c57.stex"
+path="res://.import/GraphitePencil-Sheet.png-b0d6416394f53c9e552b8c327b131e9d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/Blocks/Eraser/Eraser-Sheet.png"
-dest_files=[ "res://.import/Eraser-Sheet.png-7fdfa4c8d311c932dcf9972088b15c57.stex" ]
+source_file="res://Scenes/Blocks/Pencil/Sprites/GraphitePencil-Sheet.png"
+dest_files=[ "res://.import/GraphitePencil-Sheet.png-b0d6416394f53c9e552b8c327b131e9d.stex" ]
 
 [params]
 

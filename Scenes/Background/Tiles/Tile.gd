@@ -26,7 +26,7 @@ func _ready() -> void:
 
 func _on_Tile_pressed() -> void:
 	# Emit position when clicked
-	Player.tile_clicked(get_global_rect().position)
+	Global.tile_clicked(get_global_rect().position)
 
 func _on_Tile_mouse_exited() -> void:
 	# Prevent focus when mouse isn't on tile
@@ -37,3 +37,7 @@ func _on_Tile_mouse_exited() -> void:
 #		add_stylebox_override('disabled', empty_style)
 #
 #
+
+
+func _on_Area2D_body_entered(body: Node) -> void:
+	print(body.get_position_in_parent())

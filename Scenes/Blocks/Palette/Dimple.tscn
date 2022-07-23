@@ -1,3 +1,17 @@
-[gd_scene format=2]
+[gd_scene load_steps=3 format=2]
 
-[node name="Dimple" type="Node2D"]
+[ext_resource path="res://Scenes/Blocks/Palette/Sprites/Dimples-Sheet.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Blocks/Palette/Sprites/Paint-Sheet.png" type="Texture" id=2]
+
+[node name="Dimple" type="Sprite"]
+texture = ExtResource( 1 )
+centered = false
+hframes = 4
+
+[node name="Paint" type="Sprite" parent="."]
+modulate = Color( 1, 0.109804, 0.180392, 1 )
+texture = ExtResource( 2 )
+centered = false
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

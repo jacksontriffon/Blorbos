@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/Background/Tiles/Tile.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Background/Tiles/Themes/Active/disabled.tres" type="StyleBox" id=2]
@@ -54,6 +54,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id=5]
 resource_name = "shake"
+length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_position")
 tracks/0/interp = 1
@@ -61,10 +62,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 3, 0 ) ]
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0, 0 ), Vector2( 3, -3 ), Vector2( -3, 0 ), Vector2( 0, 0 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:rect_rotation")
@@ -73,11 +74,14 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0.0, -7.7 ]
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0.0, -7.7, 7.7, 0.0 ]
 }
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 32, 32 )
 
 [node name="Tile" type="Button"]
 margin_left = 3.0
@@ -95,7 +99,14 @@ script = ExtResource( 1 )
 anims/RESET = SubResource( 4 )
 anims/shake = SubResource( 5 )
 
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 32, 32 )
+shape = SubResource( 6 )
+
 [connection signal="focus_entered" from="." to="." method="_on_Tile_focus_entered"]
 [connection signal="mouse_entered" from="." to="." method="_on_Tile_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_Tile_mouse_exited"]
 [connection signal="pressed" from="." to="." method="_on_Tile_pressed"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

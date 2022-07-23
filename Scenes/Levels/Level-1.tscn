@@ -1,16 +1,18 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/Blocks/Eraser/Eraser.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Blorbos/Blorbo.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Blocks/Pencil/Pencil.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Levels/Level-1.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/Background/Desk/Desk.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/Blocks/Ruler/Ruler.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Blocks/Palette/Palette.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 32, 400 )
+extents = Vector2( 32, 224 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 680, 32 )
+extents = Vector2( 320, 24 )
 
 [node name="Level-1" type="Node2D"]
 script = ExtResource( 4 )
@@ -21,84 +23,51 @@ centered = false
 
 [node name="Erasers" type="Node2D" parent="."]
 
-[node name="Eraser" parent="Erasers" instance=ExtResource( 1 )]
-position = Vector2( 320, 320 )
-
-[node name="Eraser4" parent="Erasers" instance=ExtResource( 1 )]
-position = Vector2( 640, 512 )
-
-[node name="Eraser5" parent="Erasers" instance=ExtResource( 1 )]
-position = Vector2( 704, 512 )
-
-[node name="Eraser6" parent="Erasers" instance=ExtResource( 1 )]
-position = Vector2( 384, 512 )
-
-[node name="Eraser7" parent="Erasers" instance=ExtResource( 1 )]
-position = Vector2( 448, 512 )
-
-[node name="Eraser8" parent="Erasers" instance=ExtResource( 1 )]
-position = Vector2( 384, 192 )
-
-[node name="Eraser9" parent="Erasers" instance=ExtResource( 1 )]
-position = Vector2( 448, 192 )
-
-[node name="Eraser10" parent="Erasers" instance=ExtResource( 1 )]
-position = Vector2( 512, 192 )
-
-[node name="Eraser11" parent="Erasers" instance=ExtResource( 1 )]
-position = Vector2( 576, 320 )
-
-[node name="Eraser12" parent="Erasers" instance=ExtResource( 1 )]
-position = Vector2( 640, 320 )
-
-[node name="Eraser13" parent="Erasers" instance=ExtResource( 1 )]
-position = Vector2( 704, 320 )
-
-[node name="Eraser14" parent="Erasers" instance=ExtResource( 1 )]
-position = Vector2( 768, 320 )
-
 [node name="Eraser2" parent="Erasers" instance=ExtResource( 1 )]
-position = Vector2( 320, 192 )
+position = Vector2( 896, 512 )
 
 [node name="Eraser3" parent="Erasers" instance=ExtResource( 1 )]
-position = Vector2( 320, 256 )
+position = Vector2( 960, 576 )
 
 [node name="Pencils" type="Node2D" parent="."]
 
 [node name="Pencil" parent="Pencils" instance=ExtResource( 3 )]
-position = Vector2( 384, 384 )
+position = Vector2( 1024, 640 )
 rotation = 1.5708
-
-[node name="Pencil2" parent="Pencils" instance=ExtResource( 3 )]
-position = Vector2( 640, 576 )
-rotation = 3.14159
-
-[node name="Pencil3" parent="Pencils" instance=ExtResource( 3 )]
-position = Vector2( 832, 448 )
-rotation = 7.85398
-
-[node name="Pencil4" parent="Pencils" instance=ExtResource( 3 )]
-position = Vector2( 640, 192 )
-rotation = 7.85398
 
 [node name="Blobos" type="Node2D" parent="."]
 
-[node name="Blorbo" parent="Blobos" instance=ExtResource( 2 )]
+[node name="Red" parent="Blobos" instance=ExtResource( 2 )]
 
 [node name="LevelEdges" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelEdges"]
-position = Vector2( -32, 336 )
+position = Vector2( 608, 544 )
 shape = SubResource( 1 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="LevelEdges"]
-position = Vector2( 1312, 336 )
+position = Vector2( 1312, 544 )
 shape = SubResource( 1 )
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="LevelEdges"]
-position = Vector2( 656, -32 )
+position = Vector2( 960, 336 )
 shape = SubResource( 3 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="LevelEdges"]
-position = Vector2( 632, 768 )
+position = Vector2( 960, 744 )
 shape = SubResource( 3 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 960, 544 )
+current = true
+zoom = Vector2( 0.5, 0.5 )
+offset_v = -0.13
+
+[node name="Rulers" type="Node2D" parent="."]
+
+[node name="Ruler" parent="Rulers" instance=ExtResource( 6 )]
+position = Vector2( 704, 512 )
+rotation = -1.5708
+
+[node name="Palette" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1088, 320 )

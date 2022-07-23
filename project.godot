@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "TileMap",
+"class": "AstarTileMap",
+"language": "GDScript",
+"path": "res://Global/AstarTileMap.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Blorbo",
 "language": "GDScript",
@@ -20,6 +25,7 @@ _global_script_classes=[ {
 "path": "res://Level.gd"
 } ]
 _global_script_class_icons={
+"AstarTileMap": "",
 "Blorbo": "",
 "Level": ""
 }
@@ -32,7 +38,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Player="*res://Global/Player.gd"
+Global="*res://Global/Global.gd"
 
 [display]
 

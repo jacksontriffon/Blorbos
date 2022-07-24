@@ -23,11 +23,22 @@ var blue_spritesheet = preload('res://Scenes/Blorbos/Sprites/BlorboBlue-Sheet.pn
 
 
 
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Global.connect("tile_clicked", self, 'handle_tile_click')
 	set_color('red')
 
+
+func spawn(color:String, final_position:Vector2, height_at_top:float) -> void:
+	set_color(color)
+	animation.play('red_drop')
+	tween.interpolate_property(self, 'global_position:y', height_at_top, final_position, 0.3, Tween.TRANS_BOUNCE, Tween.EASE_OUT_IN)
+	tween.start()
+	yield(tween, "tween_completed")
+	animation.play('red_spawn')
+	
 
 # ---------------------------------------
 # ------------- MOVEMENT ----------------
@@ -38,36 +49,6 @@ func _unhandled_input(event: InputEvent) -> void:
 			var direction: Vector2 = input_directions[dir]
 			move(direction)
 
-func handle_tile_click(tile_position: Vector2)->void:
-	Global.find_path(name, global_position, tile_position)
-#	Player.connect("path_detected", self, '_move_along_path')
-#	move_along_path(tile_position)
-
-#func move_along_path(tile_position: Vector2)->void:
-#	var moved = false
-#	var tiles_x = (tile_position.x / grid_size) - (global_position.x / grid_size)
-#	var tiles_y = (tile_position.y / grid_size) - (global_position.y / grid_size)
-#
-#	print(tiles_x, ' | ', tiles_y)
-#
-#	for tile in range(0, tiles_x + tiles_y, 1):
-#		# Blorbo on the left
-#		if tiles_x > 0:
-#			print('move right')
-##			for tile in range(0, tiles_x, 1):
-#			moved = move(Vector2.RIGHT)
-##				yield(get_tree().create_timer(0.8), "timeout")
-#		# Blorbo on the right
-#		elif tiles_x < 0:
-#			print('move left')
-#			moved = move(Vector2.LEFT)
-#		# Blorbo above
-#		elif tiles_y > 0:
-#			print('move down')
-#			moved = move(Vector2.DOWN)
-#		# Blorbo below
-#		elif tiles_y < 0:
-#			moved = move(Vector2.UP)
 
 func move(direction: Vector2, last_movement: bool = true)->bool:
 	if not moving:
@@ -81,13 +62,6 @@ func move(direction: Vector2, last_movement: bool = true)->bool:
 			
 			# Animation
 			match direction:
-		#			Vector2.RIGHT:
-		#				$Sprite.flip_h = false
-		#				animation.play(color+'_hop')
-		#				var seconds_left: float = animation.current_animation_length
-		#				tween.interpolate_property(self, 'position:x', position.x, position.x + grid_size, seconds_left / 2, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
-		#				tween.start()
-		#				yield(animation, "animation_finished")
 				Vector2.RIGHT:
 					$Sprite.flip_h = false
 					animation.play(current_color+"_hop_right")
@@ -155,9 +129,11 @@ func set_color(new_color:String):
 		'blue':
 			$Sprite.texture = blue_spritesheet
 			$Sprite.hframes = 17
+			animation.play("blue_idle")
 		'red':
 			$Sprite.texture = red_spritesheet
-			$Sprite.hframes = 36
+			$Sprite.hframes = 47
+			animation.play("red_idle")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

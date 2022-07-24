@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Blocks/Pencil/Pencil.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Blocks/Palette/Palette.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Background/Desk/Desk.png" type="Texture" id=3]
+
+[node name="Level3" type="Node2D"]
+
+[node name="Bg" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+centered = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 1056, 192 )
+zoom = Vector2( 0.35, 0.35 )
+
+[node name="Palette" parent="Camera2D" instance=ExtResource( 2 )]
+position = Vector2( 32, -64 )
+rotation = -1.5708
+
+[node name="Pencil" parent="Camera2D/Palette" instance=ExtResource( 1 )]
+position = Vector2( 0.000228882, -64 )

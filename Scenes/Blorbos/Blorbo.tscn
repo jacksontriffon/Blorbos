@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scenes/Blorbos/Sprites/BlorboRed-Sheet.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Blorbos/Blorbo.gd" type="Script" id=2]
@@ -42,7 +42,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 8 ]
+"values": [ 47 ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath(".:position")
@@ -183,6 +183,22 @@ tracks/0/keys = {
 "values": [ 30, 31, 32, 33, 34, 35 ]
 }
 
+[sub_resource type="Animation" id=20]
+resource_name = "red_drop"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 36, 37, 38, 39 ]
+}
+
 [sub_resource type="Animation" id=18]
 resource_name = "red_hop_down"
 tracks/0/type = "value"
@@ -247,13 +263,29 @@ tracks/0/keys = {
 "values": [ 0, 1, 2 ]
 }
 
+[sub_resource type="Animation" id=21]
+resource_name = "red_spawn"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 40, 41, 42, 43, 44, 45, 46 ]
+}
+
 [node name="Blorbo" type="KinematicBody2D"]
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 centered = false
-hframes = 8
+hframes = 47
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -274,9 +306,11 @@ anims/blue_idle = SubResource( 11 )
 anims/red_bump_down = SubResource( 15 )
 anims/red_bump_right = SubResource( 16 )
 anims/red_bump_up = SubResource( 17 )
+anims/red_drop = SubResource( 20 )
 anims/red_hop_down = SubResource( 18 )
 anims/red_hop_right = SubResource( 10 )
 anims/red_hop_up = SubResource( 19 )
 anims/red_idle = SubResource( 9 )
+anims/red_spawn = SubResource( 21 )
 
 [node name="Tween" type="Tween" parent="."]

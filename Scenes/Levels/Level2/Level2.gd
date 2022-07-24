@@ -1,11 +1,14 @@
-extends Level
+extends Node2D
 
 
-var initial_red_position = Vector2(896, 576)
+# Declare member variables here. Examples:
+# var a: int = 2
+# var b: String = "text"
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$Blobos/Red.global_position = initial_red_position
+	$Blorbo.global_position = Vector2(832, 192)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

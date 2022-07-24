@@ -1,6 +1,5 @@
 extends Node2D
 
-
 onready var level_1_scene = preload('res://Scenes/Levels/Level1/Level1.tscn')
 
 

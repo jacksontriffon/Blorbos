@@ -65,6 +65,37 @@ func fill_next_dimple_with_paint()->void:
 			pass
 
 
-func _on_Area2D_body_entered(body: Node) -> void:
-	fill_next_dimple_with_paint()
+func _on_Area2D_body_entered(blorbo: Blorbo) -> void:
+	if blorbo:
+		blorbo.jump_into_palette(blorbo)
+		yield(blorbo.animation, "animation_finished")
+		fill_next_dimple_with_paint()
+
+
+
+
+
+
+
+
+Nah...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

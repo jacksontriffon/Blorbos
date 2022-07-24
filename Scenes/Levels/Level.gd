@@ -1,10 +1,10 @@
-extends Level
+extends Node2D
+class_name Level
 
-var initial_red_position = Vector2(960, 512)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$Red.spawn('red', initial_red_position, initial_red_position.y-64)
+	pass # Replace with function body.
 
 
 

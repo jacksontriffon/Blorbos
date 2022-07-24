@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "TileMap",
 "class": "AstarTileMap",
 "language": "GDScript",
-"path": "res://Global/AstarTileMap.gd"
+"path": "res://unused/AstarTileMap.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Blorbo",
@@ -22,7 +22,7 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "Level",
 "language": "GDScript",
-"path": "res://Level.gd"
+"path": "res://Scenes/Levels/Level.gd"
 } ]
 _global_script_class_icons={
 "AstarTileMap": "",

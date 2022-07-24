@@ -16,23 +16,22 @@ texture = ExtResource( 1 )
 centered = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 1055, 320 )
+position = Vector2( 1068, 352 )
 current = true
-zoom = Vector2( 0.35, 0.35 )
+zoom = Vector2( 0.27, 0.27 )
 
 [node name="Blorbo" parent="." instance=ExtResource( 5 )]
 
 [node name="Blocks" type="Node2D" parent="."]
 
 [node name="Palette" parent="Blocks" instance=ExtResource( 3 )]
-position = Vector2( 1216, 256 )
+position = Vector2( 1152, 320 )
 
 [node name="Eraser" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 960, 320 )
+position = Vector2( 1088, 320 )
 
 [node name="Pencil" parent="Blocks" instance=ExtResource( 4 )]
-position = Vector2( 1024, 192 )
-rotation = 1.5708
+position = Vector2( 896, 384 )
 
 [node name="Sponge" parent="Blocks" instance=ExtResource( 7 )]
-position = Vector2( 832, 320 )
+position = Vector2( 1088, 256 )

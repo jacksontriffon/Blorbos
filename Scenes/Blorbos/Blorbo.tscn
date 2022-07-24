@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Scenes/Blorbos/Sprites/BlorboRed-Sheet.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Blorbos/Blorbo.gd" type="Script" id=2]
@@ -33,7 +33,7 @@ tracks/1/keys = {
 "values": [ 0 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:hframes")
+tracks/2/path = NodePath(".:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -42,10 +42,10 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 47 ]
+"values": [ Vector2( 0, 0 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath(".:position")
+tracks/3/path = NodePath("Sprite:flip_h")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -54,89 +54,11 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ) ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("Sprite:flip_h")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=13]
-resource_name = "blue_hop_down"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 8, 9, 10, 11 ]
-}
-
-[sub_resource type="Animation" id=14]
-resource_name = "blue_hop_right"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 4, 5, 6, 7 ]
-}
-
-[sub_resource type="Animation" id=12]
-resource_name = "blue_hop_up"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 13, 14, 15, 16 ]
-}
-
-[sub_resource type="Animation" id=11]
-resource_name = "blue_idle"
-length = 0.9
-loop = true
-step = 0.3
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2 ]
-}
-
 [sub_resource type="Animation" id=15]
-resource_name = "red_bump_down"
+resource_name = "bump_down"
 length = 0.6
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -152,7 +74,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=16]
-resource_name = "red_bump_right"
+resource_name = "bump_right"
 length = 0.7
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -168,7 +90,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=17]
-resource_name = "red_bump_up"
+resource_name = "bump_up"
 length = 0.6
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -184,7 +106,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=20]
-resource_name = "red_drop"
+resource_name = "drop"
 length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -200,7 +122,8 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=18]
-resource_name = "red_hop_down"
+resource_name = "hop_down"
+length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -215,7 +138,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=10]
-resource_name = "red_hop_right"
+resource_name = "hop_right"
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -231,7 +154,8 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=19]
-resource_name = "red_hop_up"
+resource_name = "hop_up"
+length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -246,7 +170,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=9]
-resource_name = "red_idle"
+resource_name = "idle"
 length = 0.9
 loop = true
 step = 0.3
@@ -263,8 +187,98 @@ tracks/0/keys = {
 "values": [ 0, 1, 2 ]
 }
 
+[sub_resource type="Animation" id=25]
+resource_name = "into_palette"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 47, 48, 49, 50, 51, 52, 53, 54, 55, 56 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 2, 0 ), Vector2( 10, 0 ), Vector2( 24, 0 ), Vector2( 35, 0 ), Vector2( 46, 0 ), Vector2( 55, 0 ), Vector2( 64, 0 ) ]
+}
+
+[sub_resource type="Animation" id=26]
+resource_name = "merge"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 81, 82, 83, 84, 85, 86, 87, 88, 89, 90 ]
+}
+
+[sub_resource type="Animation" id=23]
+resource_name = "merge_down"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 65, 66, 67, 68, 69, 70, 71, 72 ]
+}
+
+[sub_resource type="Animation" id=22]
+resource_name = "merge_right"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 57, 58, 59, 60, 61, 62, 63, 64 ]
+}
+
+[sub_resource type="Animation" id=24]
+resource_name = "merge_up"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 73, 74, 75, 76, 77, 78, 79, 80 ]
+}
+
 [sub_resource type="Animation" id=21]
-resource_name = "red_spawn"
+resource_name = "spawn"
 length = 0.7
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -285,7 +299,7 @@ script = ExtResource( 2 )
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 centered = false
-hframes = 47
+hframes = 91
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -299,18 +313,19 @@ cast_to = Vector2( 0, 64 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 8 )
-anims/blue_hop_down = SubResource( 13 )
-anims/blue_hop_right = SubResource( 14 )
-anims/blue_hop_up = SubResource( 12 )
-anims/blue_idle = SubResource( 11 )
-anims/red_bump_down = SubResource( 15 )
-anims/red_bump_right = SubResource( 16 )
-anims/red_bump_up = SubResource( 17 )
-anims/red_drop = SubResource( 20 )
-anims/red_hop_down = SubResource( 18 )
-anims/red_hop_right = SubResource( 10 )
-anims/red_hop_up = SubResource( 19 )
-anims/red_idle = SubResource( 9 )
-anims/red_spawn = SubResource( 21 )
+anims/bump_down = SubResource( 15 )
+anims/bump_right = SubResource( 16 )
+anims/bump_up = SubResource( 17 )
+anims/drop = SubResource( 20 )
+anims/hop_down = SubResource( 18 )
+anims/hop_right = SubResource( 10 )
+anims/hop_up = SubResource( 19 )
+anims/idle = SubResource( 9 )
+anims/into_palette = SubResource( 25 )
+anims/merge = SubResource( 26 )
+anims/merge_down = SubResource( 23 )
+anims/merge_right = SubResource( 22 )
+anims/merge_up = SubResource( 24 )
+anims/spawn = SubResource( 21 )
 
 [node name="Tween" type="Tween" parent="."]

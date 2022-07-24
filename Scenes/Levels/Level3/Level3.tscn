@@ -1,10 +1,15 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/Blocks/Pencil/Pencil.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Blocks/Palette/Palette.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Background/Desk/Desk.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Blocks/Eraser/Eraser.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Blocks/Sponge/Sponge.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Blorbos/Blorbo.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Levels/Level3/Level3.gd" type="Script" id=7]
 
 [node name="Level3" type="Node2D"]
+script = ExtResource( 7 )
 
 [node name="Bg" type="Sprite" parent="."]
 texture = ExtResource( 3 )
@@ -14,9 +19,29 @@ centered = false
 position = Vector2( 1056, 192 )
 zoom = Vector2( 0.35, 0.35 )
 
-[node name="Palette" parent="Camera2D" instance=ExtResource( 2 )]
-position = Vector2( 32, -64 )
+[node name="Blocks" type="Node2D" parent="."]
+
+[node name="Pencil" parent="Blocks" instance=ExtResource( 1 )]
+position = Vector2( 960, 256 )
 rotation = -1.5708
 
-[node name="Pencil" parent="Camera2D/Palette" instance=ExtResource( 1 )]
-position = Vector2( 0.000228882, -64 )
+[node name="Palette" parent="Blocks" instance=ExtResource( 2 )]
+position = Vector2( 1216, 64 )
+
+[node name="Sponge" parent="Blocks/Palette" instance=ExtResource( 5 )]
+position = Vector2( -256, 0 )
+
+[node name="Eraser" parent="Blocks/Palette" instance=ExtResource( 4 )]
+position = Vector2( -384, 128 )
+
+[node name="Eraser2" parent="Blocks/Palette" instance=ExtResource( 4 )]
+position = Vector2( -384, 192 )
+
+[node name="Eraser3" parent="Blocks/Palette" instance=ExtResource( 4 )]
+position = Vector2( -192, 128 )
+
+[node name="Pencil" parent="Blocks/Palette" instance=ExtResource( 1 )]
+position = Vector2( 0, 128 )
+rotation = 1.5708
+
+[node name="Blorbo" parent="." instance=ExtResource( 6 )]
